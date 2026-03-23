@@ -14,13 +14,17 @@ int puzzle[9][9] = {
 
 void print_puzzle(int puzzle[9][9]);
 int valid_move(int puzzle[9][9], int row, int col, int val);
-int solve_puzzle(int puzzle[9][9], int row, int col);
+int solve_puzzle(int puzzle[9][9]);
+
+int findEmptyRow(int puzzle[9][9]);
+int findEmptyCol(int puzzle[9][9]);
+
 
 int main() {
   printf("\n\tWelcome to SUDOKU Solver !!!");
   printf("\n\nOriginal Puzzle:");
   print_puzzle(puzzle);
-  if (solve_puzzle(puzzle, 0, 0)) {
+  if (solve_puzzle(puzzle)) {
     printf("\n The puzzle is solved: ");
     print_puzzle(puzzle);
   } else {
@@ -29,7 +33,8 @@ int main() {
   return 0;
 }
 
-int solve_puzzle(int puzzle[9][9], int row, int col) {
+int solve_puzzle(int puzzle[9][9]) {
+/*
 
   if (col == 9) {
     if (row == 8) {
@@ -41,12 +46,17 @@ int solve_puzzle(int puzzle[9][9], int row, int col) {
 
   if (puzzle[row][col] > 0) {
     return solve_puzzle(puzzle, row, col + 1);
-  }
+  }*/
+
+int empty;
+int row =findEmptyRow(puzzle);
+int col =findEmptyCol(puzzle);
+if (empty==-1) return 1 ;
 
   for (int i = 1; i <= 9; i++) {
     if (valid_move(puzzle, row, col, i)) {
       puzzle[row][col] = i;
-      if (solve_puzzle(puzzle, row, col + 1)) {
+      if (solve_puzzle(puzzle)) {
         return 1;
       }
       puzzle[row][col] = 0;
