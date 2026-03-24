@@ -17,15 +17,13 @@ int valid_move(int puzzle[9][9], int row, int col, int val);
 int solve_puzzle(int puzzle[9][9]);
 
 int findEmpty(int puzzle[9][9]){
-int empty = -1;
 
 for(int i=0;i<9;i++){
 for(int j=0;j<9;j++){
 
 if (puzzle[i][j]==0){
-empty=i*9+j;
+return i*9+j;
 }
-return empty;
 
 }
 }
