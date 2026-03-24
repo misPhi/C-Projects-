@@ -53,6 +53,8 @@ int row =findEmptyRow(puzzle);
 int col =findEmptyCol(puzzle);
 if (empty==-1) return 1 ;
 
+
+
   for (int i = 1; i <= 9; i++) {
     if (valid_move(puzzle, row, col, i)) {
       puzzle[row][col] = i;
@@ -62,8 +64,17 @@ if (empty==-1) return 1 ;
       puzzle[row][col] = 0;
     }
   }
+
+
+
   return 0;
 }
+
+int findEmptyRow(int puzzle[9][9]){
+for(int i=0;i<9;i++){
+
+}
+} 
 
 int valid_move(int puzzle[9][9], int row, int col, int val) {
 
