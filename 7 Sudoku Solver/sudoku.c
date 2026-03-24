@@ -16,8 +16,23 @@ void print_puzzle(int puzzle[9][9]);
 int valid_move(int puzzle[9][9], int row, int col, int val);
 int solve_puzzle(int puzzle[9][9]);
 
-int findEmptyRow(int puzzle[9][9]);
-int findEmptyCol(int puzzle[9][9]);
+int findEmpty(int puzzle[9][9]){
+int empty = -1;
+
+for(int i=0;i<9;i++){
+for(int j=0;j<9;j++){
+
+if (puzzle[i][j]==0){
+empty=i*9+j;
+}
+return empty;
+
+}
+}
+
+return -1;
+} 
+
 
 
 int main() {
@@ -48,9 +63,9 @@ int solve_puzzle(int puzzle[9][9]) {
     return solve_puzzle(puzzle, row, col + 1);
   }*/
 
-int empty;
-int row =findEmptyRow(puzzle);
-int col =findEmptyCol(puzzle);
+int empty=findEmpty(puzzle);
+int row =empty/9;
+int col =empty%9;
 if (empty==-1) return 1 ;
 
 
@@ -70,11 +85,7 @@ if (empty==-1) return 1 ;
   return 0;
 }
 
-int findEmptyRow(int puzzle[9][9]){
-for(int i=0;i<9;i++){
 
-}
-} 
 
 int valid_move(int puzzle[9][9], int row, int col, int val) {
 
